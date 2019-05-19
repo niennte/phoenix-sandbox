@@ -2,18 +2,19 @@
 # They can then be used by adding `plugin MyPlugin` to
 # either an environment, or release definition, where
 # `MyPlugin` is the name of the plugin module.
-Path.join(["rel", "plugins", "*.exs"])
+~w(rel plugins *.exs)
+|> Path.join()
 |> Path.wildcard()
 |> Enum.map(&Code.eval_file(&1))
 
-use Mix.Releases.Config,
-    # This sets the default release built by `mix release`
+use Distillery.Releases.Config,
+    # This sets the default release built by `mix distillery.release`
     default_release: :default,
-    # This sets the default environment used by `mix release`
+    # This sets the default environment used by `mix distillery.release`
     default_environment: Mix.env()
 
 # For a full list of config options for both releases
-# and environments, visit https://hexdocs.pm/distillery/configuration.html
+# and environments, visit https://hexdocs.pm/distillery/config/distillery.html
 
 
 # You may define one or more environments in this file,
@@ -30,21 +31,23 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :":?~:F=8MA(0O>6<6:IX{n{{S$3z~/d:C;in)7MCagy/Fpo_*oezG&L}lTnX~FC[|"
+  set cookie: :"}`O=llNjg&f@w@L!jvazz*nL%9yxfA8XriRK3=w;~H1flf_sNLRr~%Xf9qQTviu<"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
+  set cookie: :"Tad4d!e_h?:B;L}d!cV2*W$?tX*bTkJp>i8`)Euc2WwN:*L11G7mTvI%NMNLu10w"
+  set vm_args: "rel/vm.args"
 end
 
 # You may define one or more releases in this file.
 # If you have not set a default release, or selected one
-# when running `mix release`, the first release in the file
+# when running `mix distillery.release`, the first release in the file
 # will be used by default
 
-release :gigalixir_getting_started do
-  set version: current_version(:gigalixir_getting_started)
+release : do
+  set version: current_version(:)
   set applications: [
     :runtime_tools
   ]
