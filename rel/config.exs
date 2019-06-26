@@ -31,13 +31,13 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"}`O=llNjg&f@w@L!jvazz*nL%9yxfA8XriRK3=w;~H1flf_sNLRr~%Xf9qQTviu<"
+  set cookie: :";1@}zha%A{[Kwn*HvqWi;1ZC?SZ4yUW5v4Dq{S~/4Z%1<OSr3IWg$W`xo@p$q&r`"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :"Tad4d!e_h?:B;L}d!cV2*W$?tX*bTkJp>i8`)Euc2WwN:*L11G7mTvI%NMNLu10w"
+  set cookie: :"_snUs$Gt4)QR[A(MVyJhd%v}1FEzZq=X^*.M<s!EcT~$30]66xABG{]Nbx6%.n[_"
   set vm_args: "rel/vm.args"
 end
 
@@ -46,8 +46,8 @@ end
 # when running `mix distillery.release`, the first release in the file
 # will be used by default
 
-release : do
-  set version: current_version(:)
+release :gigalixir_getting_started do
+  set version: current_version(:gigalixir_getting_started)
   set applications: [
     :runtime_tools
   ]
