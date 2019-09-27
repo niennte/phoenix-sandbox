@@ -1,0 +1,71 @@
+/* This file is for your main application css. */
+
+// Custom theme colors:
+
+
+@import 'palette';
+
+$colors: (
+        blue: $okra-range-blue-subtle,
+        indigo: $indigo,
+        purple: $purple,
+        pink: $pink,
+        red: $red,
+        orange: $orange,
+        yellow: $yellow,
+        green: $green,
+        teal: $teal,
+        cyan: $cyan,
+        white: $white,
+        gray: $sea-green-gray,
+        gray-dark: $gray-800
+) !default;
+
+$theme-colors: (
+        primary: $okra-base,
+        secondary: $milder-yellow,
+        success: $sea-green,
+        info: $okra-range-blue-subtle,
+        warning: $yellow,
+        danger: $okra-base,
+        light: $okra-range-light-green,
+        dark: $gray-800
+);
+
+// Make theme colored type darker
+.textInfo {
+  color: darken($okra-range-blue-subtle, 30%);
+}
+
+.textTest {
+  color: $okra-base;
+}
+
+// Framework settings
+$enable-rounded: false;
+
+// Breakpoints
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1400px
+);
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+  background: lighten($gray-200, 5%);
+}
+
+#app-root {
+  @extend .text-center;
+  @extend .textTest;
+  border: 5px solid lighten($okra-base, 25%);
+}
+
+#app-root::before {
+  color: $sea-green;
+  content: '(Sass should add this and make sea green)'
+}

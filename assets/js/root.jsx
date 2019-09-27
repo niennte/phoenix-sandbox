@@ -1,10 +1,7 @@
 import React from 'react';
 
 const Root = () => (
-  <p style={{
-    color: 'red',
-    border: '1px solid orange'
-  }}>
+  <p className="display-4">
     Hello from the React root....
   </p>
 )

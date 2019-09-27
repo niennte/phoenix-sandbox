@@ -1,0 +1,108 @@
+// Colors
+
+$okra-range-1:#CCDA20;
+$okra-range-2:#DAD120;
+$okra-range-3:#DABB20;
+$okra-range-4:#DAA520;
+$okra-range-5:#DA8E20;
+$okra-range-6:#DA7820;
+$okra-range-7:#DA6220;
+
+$pale-lime-1: #DAD120;
+$pale-lime-2: #DFD73F;
+$pale-lime-3: #E4DE5F;
+$pale-lime-4: #E9E47F;
+$pale-lime-5: #EFEB9F;
+$pale-lime-6: #F4F1BF;
+$pale-lime-7: #F9F8DF;
+
+$color1: #94B3C0;
+$color2: #2E5767;
+$color3: #672E40;
+$color4: #DBA309;
+
+$okra-900: #DB6709;
+$okra-800: #E07C2C;
+$okra-700: #E5924F;
+$okra-600: #EAA872;
+$okra-500: #EFBD95;
+$okra-400: #F4D3B8;
+$okra-300: #F9E9DB;
+
+$okra-range-yellow: #ffc107;
+$okra-range-blue: #94b3c0;
+$okra-range-blue-subtle: #bcd1da;
+$okra-range-blue-brighter: #78a0b1;
+$okra-range-light-green: #ebf1e7;
+$okra-range-light-green-pale: #f0f5ee;
+$okra-range-light-green-subtle: #f6fbf5;
+
+
+// Custom theme colors:
+$brighter-orange: #ff6707;
+$softer-orange: #f98237;
+$brighter-pale-green: #a1bba6;
+$darker-pale-green: #6d948a;
+$milder-pale-green: #a7b7aa;
+$milder-yellow: #fdd96e;
+
+.primaryType {
+  color: $softer-orange !important;
+}
+.secondaryType {
+  color: $okra-range-yellow !important;
+}
+.ternaryType {
+  color: $milder-pale-green !important;
+}
+
+// Custom colors
+$neon-fuchsia: #92278F;
+$neon-pink: #EE2A7B;
+$neon-green: #D7DF23;
+$neon-teal: #24AEB5;
+$neon-white: #fff;
+$neon-dark: #000;
+$neon-mild-gray: #868e96;
+
+$sea-green: #327c69;
+$sea-blue: #4B6F7C;
+$sea-blue-light: #C3CFD3;
+
+
+$sea-blue-base: #94B3C0;
+$sea-blue-main: #2E5767;
+$sea-blue-accent1: #672E40;
+$sea-blue-accent2: #67602E;
+
+// #327C69,#4F8E7E,#6CA193,#89B4A9,#A7C6BE,#C4D9D4,#E1ECE9
+$sea-green-gray: #C4D9D4;
+$sea-green-light: #E1ECE9;
+
+
+// #DB6709,#E07C2C,#E5924F,#EAA872,#EFBD95,#F4D3B8,#F9E9DB
+$okra-base: #DB6709;
+
+// Theme colors
+$white:  #fff !default;
+$gray-100: #e5ece1 !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:  #000 !default;
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
