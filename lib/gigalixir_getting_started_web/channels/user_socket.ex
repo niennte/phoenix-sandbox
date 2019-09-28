@@ -2,7 +2,7 @@ defmodule GigalixirGettingStartedWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", GigalixirGettingStartedWeb.RoomChannel
+  channel "room:*", GigalixirGettingStartedWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
