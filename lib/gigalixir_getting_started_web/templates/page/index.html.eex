@@ -1,10 +1,11 @@
 <div id="app-root"></div>
 
 <div class="ws-test">
-    <label for="chat-input">Enter a lowercase string here:</label>
+    <label for="chat-input">Enter a request here:</label>
     <input id="chat-input" type="text" />
+    e.g., {"c":-27,"b":0,"a":1}
     <div style="border: 1px solid orange" id="messages">
-        Messages uppercased on the server and returned via WS:
+        Channel handler response:
     </div>
 </div>
 
@@ -85,7 +86,7 @@
               <code><var>x<sub>1</sub></var> = 2</code><br/>
               <code><var>x<sub>2</sub></var> = -2</code><br/>
               <code><var>x</var> = &plusmn;2</code><br/>
-              <code><var>x</var> = &plusmn;2&radic;6</code>
+              <code><var>x</var> = &plusmn; &radic;6</code>
               </p>
             </div>
         </div>
@@ -96,11 +97,13 @@
          Equation
            <code>2<var>x</var><sup>2</sup> + 16 = 0</code>
            of type <i>quadratic</i>
-           has no solution:
+           has no real number solution. Imaginary solution:
            </p>
          </div>
          <div class="col-auto">
-           <code><var>x</var> =  &empty;</code>
+           <code><var>x</var> =  &plusmn;4i</code><br/>
+           <code><var>x<sub>1</sub></var> = 4i</code><br/>
+           <code><var>x<sub>2</sub></var> = -4i</code><br/>
          </div>
      </div>
 
@@ -110,11 +113,11 @@
               <p>Variables: <code><var>a</var> = 0, <var>b</var> = 0, <var>c</var> = 0</code><br/>
               Equation
                 <code>0<var>x</var> = 0</code>
-                is of type <i>mom wouldn't approve</i> is not solvable
+                is of type <i>linear</i> has an infinite number of solutions:
                 </p>
               </div>
               <div class="col-auto">
-                <code><var>x</var> =  undefined</code>
+                <code><var>x</var> =  &isin;[&infin;]</code>
               </div>
           </div>
 
@@ -125,11 +128,11 @@
                         <p>Variables: <code><var>a</var> = 0, <var>b</var> = 0, <var>c</var> = 16</code><br/>
                         Equation
                           <code>0<var>x</var> = 16</code>
-                          is of type mom would wouldn't approve:
+                          is of type <span style="text-decoration: line-through">mom would wouldn't approve</span> linear and has no solution:
                           </p>
                         </div>
                         <div class="col-auto">
-                          <code><var>x</var> = undefined</code>
+                          <code><var>x</var> =  &empty;</code>
                         </div>
                     </div>
 </form>
