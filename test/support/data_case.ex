@@ -1,4 +1,4 @@
-defmodule GigalixirGettingStarted.DataCase do
+defmodule EquationSolver.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule GigalixirGettingStarted.DataCase do
 
   using do
     quote do
-      alias GigalixirGettingStarted.Repo
+      alias EquationSolver.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import GigalixirGettingStarted.DataCase
+      import EquationSolver.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GigalixirGettingStarted.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(EquationSolver.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GigalixirGettingStarted.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(EquationSolver.Repo, {:shared, self()})
     end
 
     :ok

@@ -1,4 +1,4 @@
-defmodule GigalixirGettingStartedWeb.ChannelCase do
+defmodule EquationSolverWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule GigalixirGettingStartedWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint GigalixirGettingStartedWeb.Endpoint
+      @endpoint EquationSolverWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GigalixirGettingStarted.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(EquationSolver.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GigalixirGettingStarted.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(EquationSolver.Repo, {:shared, self()})
     end
     :ok
   end

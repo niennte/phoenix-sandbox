@@ -1,5 +1,5 @@
-defmodule GigalixirGettingStartedWeb.Router do
-  use GigalixirGettingStartedWeb, :router
+defmodule EquationSolverWeb.Router do
+  use EquationSolverWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule GigalixirGettingStartedWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", GigalixirGettingStartedWeb do
+  scope "/", EquationSolverWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GigalixirGettingStartedWeb do
+  # scope "/api", EquationSolverWeb do
   #   pipe_through :api
   # end
 end

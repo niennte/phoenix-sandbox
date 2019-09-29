@@ -43,8 +43,8 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :gigalixir_getting_started do
-  set version: current_version(:gigalixir_getting_started)
+release :equation_solver do
+  set version: current_version(:equation_solver)
   set applications: [
     :runtime_tools
   ]

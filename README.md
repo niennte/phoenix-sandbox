@@ -1,4 +1,4 @@
-# GigalixirGettingStarted
+# EquationSolver
 [![Build Status](https://travis-ci.org/gigalixir/gigalixir-getting-started.svg?branch=master)](https://travis-ci.org/gigalixir/gigalixir-getting-started)
 
 To start your Phoenix server:

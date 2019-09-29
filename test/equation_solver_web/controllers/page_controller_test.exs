@@ -1,5 +1,5 @@
-defmodule GigalixirGettingStartedWeb.PageControllerTest do
-  use GigalixirGettingStartedWeb.ConnCase
+defmodule EquationSolverWeb.PageControllerTest do
+  use EquationSolverWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

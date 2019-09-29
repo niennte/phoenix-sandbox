@@ -1,5 +1,5 @@
-defmodule GigalixirGettingStartedWeb.ErrorView do
-  use GigalixirGettingStartedWeb, :view
+defmodule EquationSolverWeb.ErrorView do
+  use EquationSolverWeb, :view
 
   def render("404.html", _assigns) do
     "Page not found"
