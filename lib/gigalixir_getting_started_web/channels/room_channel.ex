@@ -4,11 +4,13 @@ defmodule GigalixirGettingStartedWeb.RoomChannel do
   def join("room:lobby", _message, socket) do
     {:ok, socket}
   end
+
   def join("room:" <> _private_room_id, _params, _socket) do
     {:error, %{reason: "unauthorized"}}
   end
 
-  defmodule Equation do
+  defmodule Params do
+    # get Poison.Encoder protocol fall back on any implementation when called on the struct
     @derive [Poison.Encoder]
 
     # Structs
@@ -18,20 +20,24 @@ defmodule GigalixirGettingStartedWeb.RoomChannel do
   end
 
   def handle_in("new_msg", %{"body" => body}, socket) do
-    params = Poison.decode!(body, as: %Equation{})
-    equation = to_string(params.a) <>
-               " * x pow 2 + " <>
-               to_string(params.b) <>
-               " * x + " <>
-               to_string(params.c) <> " = 0"
+    params = Poison.decode!(body, as: %Params{})
 
-    response = Poison.encode!(%{
-      "params" => params,
-      "equation" => equation,
-      "solvable" => true,
-      "type" => "quadratic",
-      "solutions" => [-5.196152422706632, 5.196152422706632]
-    })
+    equation =
+      to_string(params.a) <>
+        " * x pow 2 + " <>
+        to_string(params.b) <>
+        " * x + " <>
+        to_string(params.c) <> " = 0"
+
+    response =
+      Poison.encode!(%{
+        "params" => params,
+        "equation" => equation,
+        "solvable" => true,
+        "type" => "quadratic",
+        "solutions" => [-5.196152422706632, 5.196152422706632]
+      })
+
     push(socket, "respond", %{body: response})
     {:noreply, socket}
   end
