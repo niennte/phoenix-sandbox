@@ -19,7 +19,7 @@ defmodule EquationSolverWeb.RoomChannel do
     defstruct [:a, :b, :c]
   end
 
-  def handle_in("new_msg", %{"body" => body}, socket) do
+  def handle_in("solve_request", %{"params" => body}, socket) do
     params = Poison.decode!(body, as: %Params{})
 
     equation =
@@ -38,7 +38,7 @@ defmodule EquationSolverWeb.RoomChannel do
         "solutions" => [-5.196152422706632, 5.196152422706632]
       })
 
-    push(socket, "respond", %{body: response})
+    push(socket, "solution", %{body: response})
     {:noreply, socket}
   end
 end

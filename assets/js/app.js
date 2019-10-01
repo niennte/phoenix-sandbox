@@ -18,16 +18,35 @@ import "phoenix_html"
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
-import socket from "./socket"
+import { setUpSocket } from "./socket"
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
 
+import reducers from './reducer'
 import Root from './root'
+import { isProd } from './util';
 
-ReactDOM.render(
-<Root />,
-  document.getElementById('app-root')
+const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+
+export const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(thunkMiddleware))
 );
+
+const rootEl = document.querySelector('#app-root');
+
+const appWrapper = (AppComponent, reduxStore) => (
+  <Provider store={reduxStore}>
+    <AppComponent />
+  </Provider>
+);
+
+ReactDOM.render(appWrapper(Root, store), rootEl);
+
+setUpSocket(store)
 
 

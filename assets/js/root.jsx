@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Fragment} from 'react';
+
+import Calculator from './component/calculator'
 
 const Root = () => (
-  <p className="display-4">
-    Hello from the React root....
-  </p>
+  <Fragment>
+    <p className="display-4">
+      Hello from the React root....
+    </p>
+    <Calculator />
+  </Fragment>
 )
 
 export default Root

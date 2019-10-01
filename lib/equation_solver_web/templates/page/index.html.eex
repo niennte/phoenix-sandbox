@@ -1,6 +1,9 @@
 <div id="app-root"></div>
 
-<div class="ws-test">
+
+<h5 class="pt-5 mt-5">Debugging and dev junk</h5>
+<hr />
+<div class="ws-test ">
     <label for="chat-input">Enter a request here:</label>
     <input id="chat-input" type="text" />
     e.g., {"c":-27,"b":0,"a":1}

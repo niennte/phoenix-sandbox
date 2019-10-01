@@ -5,6 +5,10 @@
 // and connect at the socket path in "lib/web/endpoint.ex":
 import {Socket} from "phoenix"
 
+import actionCreators, {
+  applySolution,
+} from './action';
+
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 // When you connect, you'll often need to authenticate the client.
@@ -52,31 +56,38 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // from connect if you don't care about authentication.
 
 socket.connect()
-
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("room:lobby", {})
+const channel = socket.channel("room:lobby", {})
 
-let chatInput         = document.querySelector("#chat-input")
-let messagesContainer = document.querySelector("#messages")
+const setUpSocket = (store: Object) => {
 
-chatInput.addEventListener("keypress", event => {
-  if(event.keyCode === 13){
-    channel.push("new_msg", {body: chatInput.value})
-    chatInput.value = ""
-  }
-})
+  let chatInput = document.querySelector("#chat-input")
+  let messagesContainer = document.querySelector("#messages")
 
-channel.on("respond", payload => {
-  let messageItem = document.createElement("pre")
-  messageItem.innerText = `${JSON.stringify(JSON.parse(payload.body), null, 2)}`
-  messagesContainer.appendChild(messageItem)
-})
+  chatInput.addEventListener("keypress", event => {
+    if (event.keyCode === 13) {
+      channel.push("solve_request", {params: chatInput.value})
+      // chatInput.value = ""
+    }
+  })
+
+  channel.on("solution", payload => {
+    let messageItem = document.createElement("pre")
+    messageItem.innerText = `${JSON.stringify(JSON.parse(payload.body), null, 2)}`
+    messagesContainer.appendChild(messageItem)
+
+    store.dispatch(applySolution(JSON.parse(payload.body), null, 2))
+  })
 
 
+  channel.join()
+  .receive("ok", resp => {
+    console.log("Joined successfully", resp)
+  })
+  .receive("error", resp => {
+    console.log("Unable to join(", resp)
+  })
+}
 
-
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join(", resp) })
-
+export { setUpSocket, channel }
 export default socket
