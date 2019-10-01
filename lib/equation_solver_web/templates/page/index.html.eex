@@ -1,147 +1,100 @@
 <div id="app-root"></div>
 
 
-<h5 class="pt-5 mt-5">Debugging and dev junk</h5>
-<hr />
+<h2 class="pt-5 mt-5 text-muted">Debugging and dev junk</h2>
+<hr/>
 <div class="ws-test ">
     <label for="chat-input">Enter a request here:</label>
-    <input id="chat-input" type="text" />
+    <input id="chat-input" type="text"/>
     e.g., {"c":-27,"b":0,"a":1}
     <div style="border: 1px solid orange" id="messages">
         Channel handler response:
     </div>
 </div>
 
-<h4 class="mt-5">The Quadratic Equation Calculator</h4>
-<form class="mb-5">
-  <p>Enter <code><var>a</var></code>, <code><var>b</var></code>, <code><var>c</var></code> to solve equation  of type <code><var>a</var><var>x</var><sup>2</sup> + <var>b</var><var>x</var> + <var>c</var> = 0</code></p>
 
-      <div class="form-row align-items-center">
-              <div class="col-sm-8 col-lg-6">
-              <div class="row">
-              <div class="col-4"><code><var>a</var> = 2</code></div>
-              <div class="col-4"><code><var>b</var> = 0</code></div>
-              <div class="col-4"><code><var>c</var> = 0</code></div>
-</div>
-              </div>
-              <div class="col-auto">
+<h4 class="mt-5 text-muted">Sample UI messages</h4>
+<hr/>
 
-              </div>
-      </div>
-
-  <div class="form-row align-items-center">
+<div class="form-row align-items-center mb-5">
     <div class="col-sm-8 col-lg-6">
-      <div class="input-group mb-2">
-      <label class="sr-only" for="inlineFormInputGroup">a</label>
-        <input type="number" class="form-control" id="aInput" placeholder="0">
-        <div class="input-group-append">
-          <div class="input-group-text"> x<sup>2</sup> + </div>
-        </div>
-              <label class="sr-only" for="inlineFormInputGroup">b</label>
-        <input type="number" class="form-control " id="bInput" placeholder="0">
-        <div class="input-group-append">
-          <div class="input-group-text"> x + </div>
-        </div>
-              <label class="sr-only" for="inlineFormInputGroup">c</label>
-        <input type="number" class="form-control " id="cInput" placeholder="0">
-        <div class="input-group-append">
-          <div class="input-group-text"> = 0</div>
-        </div>
-      </div>
+        <p>Variables: <code><var>a</var> = 2, <var>b</var> = 0, <var>c</var> = 0</code><br/>
+            Equation
+            <code>2<var>x</var><sup>2</sup> = 0</code>
+            has one solution:</p>
     </div>
     <div class="col-auto">
-      <button class="btn btn-primary mb-2">Solve</button>
+        <code><var>x</var> = 0</code>
     </div>
-    </div>
-    <div class="form-row align-items-center mb-5">
-            <div class="col-sm-8 col-lg-6 text-center">
-              <code>2<var>x</var><sup>2</sup> = 0</code>
-            </div>
-            <div class="col-auto text-center">
-              <code><var>x</var> = 0</code>
-            </div>
-    </div>
+</div>
 
-    <hr />
-
-    <div class="form-row align-items-center mb-5">
-        <div class="col-sm-8 col-lg-6">
-        <p>Variables: <code><var>a</var> = 2, <var>b</var> = 0, <var>c</var> = 0</code><br/>
-        Equation
-          <code>2<var>x</var><sup>2</sup> = 0</code>
-          has one solution:</p>
-        </div>
-        <div class="col-auto">
-          <code><var>x</var> = 0</code>
-        </div>
-    </div>
-
-    <div class="form-row align-items-center">
-            <div class="col-sm-8 col-lg-6">
-            <p>Variables: <code><var>a</var> = 2, <var>b</var> = 0, <var>c</var> = -16</code><br/>
+<div class="form-row align-items-center">
+    <div class="col-sm-8 col-lg-6">
+        <p>Variables: <code><var>a</var> = 2, <var>b</var> = 0, <var>c</var> = -16</code><br/>
             Equation
-              <code>2<var>x</var><sup>2</sup> - 64 = 0</code>
-              is of type quadratic, and
-              has two solutions:</p>
-            </div>
-            <div class="col-auto">
-            <p>
-              <code><var>x<sub>1</sub></var> = 2</code><br/>
-              <code><var>x<sub>2</sub></var> = -2</code><br/>
-              <code><var>x</var> = &plusmn;2</code><br/>
-              <code><var>x</var> = &plusmn; &radic;6</code>
-              </p>
-            </div>
-        </div>
+            <code>2<var>x</var><sup>2</sup> - 64 = 0</code>
+            is of type quadratic, and
+            has two solutions:</p>
+    </div>
+    <div class="col-auto">
+        <p>
+            <code><var>x<sub>1</sub></var> = 2</code><br/>
+            <code><var>x<sub>2</sub></var> = -2</code><br/>
+            <code><var>x</var> = &plusmn;2</code><br/>
+            <code><var>x</var> = &plusmn; &radic;6</code>
+        </p>
+    </div>
+</div>
 
-     <div class="form-row align-items-center">
-         <div class="col-sm-8 col-lg-6">
-         <p>Variables: <code><var>a</var> = 2, <var>b</var> = 0, <var>c</var> = 16</code><br/>
-         Equation
-           <code>2<var>x</var><sup>2</sup> + 16 = 0</code>
-           of type <i>quadratic</i>
-           has no real number solution. Imaginary solution:
-           </p>
-         </div>
-         <div class="col-auto">
-           <code><var>x</var> =  &plusmn;4i</code><br/>
-           <code><var>x<sub>1</sub></var> = 4i</code><br/>
-           <code><var>x<sub>2</sub></var> = -4i</code><br/>
-         </div>
-     </div>
-
-
-     <div class="form-row align-items-center">
-              <div class="col-sm-8 col-lg-6">
-              <p>Variables: <code><var>a</var> = 0, <var>b</var> = 0, <var>c</var> = 0</code><br/>
-              Equation
-                <code>0<var>x</var> = 0</code>
-                is of type <i>linear</i> has an infinite number of solutions:
-                </p>
-              </div>
-              <div class="col-auto">
-                <code><var>x</var> =  &isin;[&infin;]</code>
-              </div>
-          </div>
+<div class="form-row align-items-center">
+    <div class="col-sm-8 col-lg-6">
+        <p>Variables: <code><var>a</var> = 2, <var>b</var> = 0, <var>c</var> = 16</code><br/>
+            Equation
+            <code>2<var>x</var><sup>2</sup> + 16 = 0</code>
+            of type <i>quadratic</i>
+            has no real number solution. Imaginary solution:
+        </p>
+    </div>
+    <div class="col-auto">
+        <code><var>x</var> = &plusmn;4i</code><br/>
+        <code><var>x<sub>1</sub></var> = 4i</code><br/>
+        <code><var>x<sub>2</sub></var> = -4i</code><br/>
+    </div>
+</div>
 
 
-
-          <div class="form-row align-items-center">
-                        <div class="col-sm-8 col-lg-6">
-                        <p>Variables: <code><var>a</var> = 0, <var>b</var> = 0, <var>c</var> = 16</code><br/>
-                        Equation
-                          <code>0<var>x</var> = 16</code>
-                          is of type <span style="text-decoration: line-through">mom would wouldn't approve</span> linear and has no solution:
-                          </p>
-                        </div>
-                        <div class="col-auto">
-                          <code><var>x</var> =  &empty;</code>
-                        </div>
-                    </div>
-</form>
+<div class="form-row align-items-center">
+    <div class="col-sm-8 col-lg-6">
+        <p>Variables: <code><var>a</var> = 0, <var>b</var> = 0, <var>c</var> = 0</code><br/>
+            Equation
+            <code>0<var>x</var> = 0</code>
+            is of type <i>linear</i> has an infinite number of solutions:
+        </p>
+    </div>
+    <div class="col-auto">
+        <code><var>x</var> = &isin;[&infin;]</code>
+    </div>
+</div>
 
 
-<h4>Equation types</h4>
+<div class="form-row align-items-center">
+    <div class="col-sm-8 col-lg-6">
+        <p>Variables: <code><var>a</var> = 0, <var>b</var> = 0, <var>c</var> = 16</code><br/>
+            Equation
+            <code>0<var>x</var> = 16</code>
+            is of type <span style="text-decoration: line-through">mom would wouldn't approve</span> linear and has no
+            solution:
+        </p>
+    </div>
+    <div class="col-auto">
+        <code><var>x</var> = &empty;</code>
+    </div>
+</div>
+
+<hr/>
+
+<h4 class="text-muted">Sample equation types</h4>
+<hr />
 <ul>
     <li>
         <code><var>2</var><var>x</var><sup>2</sup> + <var>2</var><var>x</var> + <var>1</var> = 0</code>
@@ -162,7 +115,6 @@
     <li>
         <code><var>2</var><var>x</var><sup>2</sup> - <var>1</var> = 0</code>
     </li>
-
 
 
 </ul>

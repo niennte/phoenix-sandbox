@@ -61,11 +61,12 @@ body {
 
 #app-root {
   @extend .text-center;
-  @extend .textTest;
   border: 5px solid lighten($okra-base, 25%);
 }
 
+/*
 #app-root::before {
   color: $sea-green;
   content: '(Sass should add this and make sea green)'
 }
+*/

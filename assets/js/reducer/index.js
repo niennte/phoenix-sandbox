@@ -16,10 +16,11 @@ const initialState = {
 const solutionReducer = (state: initialState, action: { type: string, payload: any }) => {
   switch (action.type) {
     case APPLY_SOLUTION:
-      return action.payload
+      return {...state, ...action.payload }
     default:
       return state
   }
 }
 
+export { initialState }
 export default solutionReducer
