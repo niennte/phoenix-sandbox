@@ -10,7 +10,7 @@ type Props = {
 
 const mapStateToProps = state => ({
   emitParams: Function,
-  solution: state
+  solution: state.equation.solution
 });
 
 

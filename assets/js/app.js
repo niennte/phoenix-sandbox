@@ -26,7 +26,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 
-import reducers, { initialState } from './reducer'
+import reducers from './reducer'
 import Root from './root'
 import { isProd } from './util';
 
@@ -34,7 +34,6 @@ const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMP
 
 export const store = createStore(
   reducers,
-  initialState,
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 

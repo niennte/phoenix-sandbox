@@ -1,26 +1,19 @@
-import { APPLY_SOLUTION } from '../action'
+import { combineReducers } from 'redux';
+
+import equation, { initialState as solutionInitialState } from './equations/equation'
+import connection, { initialState as connectionInitialState } from './connection'
+
+const reducers = combineReducers({
+  equation,
+  connection,
+});
 
 const initialState = {
-  "type": "",
-  "solvable": true,
-  "solutions": [],
-  "solution_type": "INFINITE_SET",
-  "params": {
-    "c": 0,
-    "b": 0,
-    "a": 0
+  equation: {
+    solution: solutionInitialState
   },
-  "equation": "0 * x pow 2 + 0 * x + 0 = 0"
-}
-
-const solutionReducer = (state: initialState, action: { type: string, payload: any }) => {
-  switch (action.type) {
-    case APPLY_SOLUTION:
-      return {...state, ...action.payload }
-    default:
-      return state
-  }
+  connection: connectionInitialState
 }
 
 export { initialState }
-export default solutionReducer
+export default reducers;

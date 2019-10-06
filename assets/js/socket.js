@@ -3,13 +3,25 @@
 
 // To use Phoenix channels, the first step is to import Socket
 // and connect at the socket path in "lib/web/endpoint.ex":
-import {Socket} from "phoenix"
+import { Socket } from "phoenix"
 
-import actionCreators, {
+import {
   applySolution,
+  reportError,
+  connectionOk,
+  connectionError,
 } from './action';
+import {
+  ROOM,
+  TOPIC_EQUATION_ERROR,
+  TOPIC_EQUATION_SOLUTION,
+} from './config'
+import { isProd } from './util'
 
-let socket = new Socket("/socket", {params: {token: window.userToken}})
+const params = {
+  token: (typeof window !== 'undefined') ? window.userToken : ""
+}
+let socket = new Socket("/socket", { params })
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
@@ -57,7 +69,7 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 socket.connect()
 // Now that you are connected, you can join channels with a topic:
-const channel = socket.channel("room:lobby", {})
+const channel = socket.channel(ROOM, {})
 
 const setUpSocket = (store: Object) => {
 
@@ -71,7 +83,7 @@ const setUpSocket = (store: Object) => {
     }
   })
 
-  channel.on("solution", payload => {
+  channel.on(TOPIC_EQUATION_SOLUTION, payload => {
     let messageItem = document.createElement("pre")
     messageItem.innerText = `${JSON.stringify(JSON.parse(payload.body), null, 2)}`
     messagesContainer.appendChild(messageItem)
@@ -79,15 +91,14 @@ const setUpSocket = (store: Object) => {
     store.dispatch(applySolution(JSON.parse(payload.body), null, 2))
   })
 
-
   channel.join()
   .receive("ok", resp => {
-    console.log("Joined successfully", resp)
+    store.dispatch(connectionOk({ room: ROOM, resp}))
   })
   .receive("error", resp => {
-    console.log("Unable to join(", resp)
+    store.dispatch(connectionError({ room: ROOM, resp }))
   })
 }
 
-export { setUpSocket, channel }
+export { channel, setUpSocket }
 export default socket
