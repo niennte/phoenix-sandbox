@@ -3,11 +3,8 @@ defmodule EquationSolver.EquationTest do
   doctest EquationSolver.Equation
   alias EquationSolver.Equation
   alias EquationSolver.Params
-  alias EquationSolver.Equation.Solution
+  alias EquationSolver.Solution
 
-  test "greets the world" do
-    assert Equation.hello() == :world
-  end
 
   test "solves infinite" do
     assert %Solution{ solution_type: :INFINITE_SET, solution: nil } = Equation.solve %Params{}
