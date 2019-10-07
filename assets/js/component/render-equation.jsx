@@ -6,7 +6,7 @@ const RenderEquation = (props) => {
 
   //noinspection JSAnnotator
   return (
-    <code>
+    <code className="lead">
       {
         (parseFloat(a) !== 0) && (
           <i>{ (parseFloat(a) === -1) && ("-") }

@@ -44,7 +44,7 @@ class Calculator extends React.Component<Props> {
 
     this.setState((prevState) => {
       const { request } = prevState;
-      request[name] = value;
+      request[name] = parseFloat(value);
       return { request };
     });
   }

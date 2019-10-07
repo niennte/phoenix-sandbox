@@ -14,9 +14,9 @@ defmodule EquationSolverWeb.RoomChannel do
   @doc """
   Parse incoming params and reply with solution.
   """
-  def handle_in("solve_request", %{"params" => body}, socket) do
-    response = Poison.decode!(body, as: %Params{}) |> Equation.solve |> Poison.encode!
-    push(socket, "solution", %{body: response})
+  def handle_in("solve_quadratic", %{"params" => body}, socket) do
+    solution = Poison.decode!(body, as: %Params{}) |> Equation.solve |> Poison.encode!
+    push(socket, "solution", %{body: solution})
     {:noreply, socket}
   end
 end
