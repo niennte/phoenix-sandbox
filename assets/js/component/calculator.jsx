@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import {connect} from 'react-redux';
 
@@ -10,7 +11,8 @@ type Props = {
 
 const mapStateToProps = state => ({
   emitParams: Function,
-  solution: state.equation.solution
+  solution: state.equation.solution,
+  connected: state.connection.joined
 });
 
 
@@ -50,8 +52,8 @@ class Calculator extends React.Component<Props> {
   }
 
   render() {
-    const {solution, dispatch} = this.props
-    const {request} = this.state
+    const { solution, dispatch, connected } = this.props
+    const { request } = this.state
 
     return (
       <div className="container align-content-center">
@@ -115,7 +117,10 @@ class Calculator extends React.Component<Props> {
               </div>
             </div>
             <div className="col-sm-4 mr-auto">
-              <button className="btn btn-primary btn-lg w-100 mb-2">Solve</button>
+              <button
+                className="btn btn-primary btn-lg w-100 mb-2"
+                disabled={ !connected }
+              >{ connected ? 'Solve' : 'Connecting' }</button>
             </div>
           </div>
           <div className="form-row align-items-center mb-5">
@@ -132,7 +137,6 @@ class Calculator extends React.Component<Props> {
         <hr />
         <div className="text-left">
           <h5>Backend response</h5>
-          <p className="text-muted">Comm POC. Updating "params" and "equation" fields.</p>
           <pre>
           { JSON.stringify(solution, null, 2) }
           </pre>
