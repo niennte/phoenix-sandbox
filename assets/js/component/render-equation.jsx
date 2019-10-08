@@ -4,15 +4,14 @@ const RenderEquation = (props) => {
 
   const {params: { a, b, c } } = props
 
-  //noinspection JSAnnotator
   return (
-    <code className="lead">
+    <code className="equation">
       {
         (parseFloat(a) !== 0) && (
           <i>{ (parseFloat(a) === -1) && ("-") }
             {
               (Math.abs(parseFloat(a)) !== 1) && (
-                <span>{a}</span>
+                <span className="var-A">{a}</span>
               )
             }
             <var>x</var><sup>2</sup>
@@ -27,7 +26,7 @@ const RenderEquation = (props) => {
             { ((parseFloat(b)) > 0 && (parseFloat(a) !== 0)) && (" + ") }
             {
               (Math.abs(b) !== 1) && (
-                <span>{ Math.abs(b) }</span>
+                <span className="var-B">{ Math.abs(b) }</span>
               )
             }
             <var>x</var>
@@ -37,16 +36,16 @@ const RenderEquation = (props) => {
       {
         (parseFloat(c) !== 0) && (
           (parseFloat(c) <= 0) ? (
-            <i> - { Math.abs(c) }</i>
+            <i className="var-C"> - { Math.abs(c) }</i>
           ) : (
-            <i> + { c }</i>
+            <i className="var-C"> + { c }</i>
           )
         )
       } {
       (parseFloat(b) === 0 && parseFloat(a) === 0 && parseFloat(c) === 0) && (
         <span>0<var>x</var></span>
       )
-    } = 0
+    }&nbsp;= 0
     </code>
   )
 }

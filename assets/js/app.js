@@ -28,7 +28,7 @@ import thunkMiddleware from 'redux-thunk';
 
 import reducers from './reducer'
 import Root from './root'
-import { isProd } from './util';
+import { isProd, initialState } from './util';
 
 const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 

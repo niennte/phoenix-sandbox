@@ -73,21 +73,7 @@ const channel = socket.channel(ROOM, {})
 
 const setUpSocket = (store: Object) => {
 
-  let chatInput = document.querySelector("#chat-input")
-  let messagesContainer = document.querySelector("#messages")
-
-  chatInput.addEventListener("keypress", event => {
-    if (event.keyCode === 13) {
-      channel.push("solve_request", {params: chatInput.value})
-      // chatInput.value = ""
-    }
-  })
-
   channel.on(TOPIC_EQUATION_SOLUTION, payload => {
-    let messageItem = document.createElement("pre")
-    messageItem.innerText = `${JSON.stringify(JSON.parse(payload.body), null, 2)}`
-    messagesContainer.appendChild(messageItem)
-
     store.dispatch(applySolution(JSON.parse(payload.body), null, 2))
   })
 

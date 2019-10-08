@@ -1,13 +1,13 @@
 import React, { Fragment} from 'react';
 
-import Calculator from './component/calculator'
+import EquationSolver from './component/equation-solver'
 
 const Root = () => (
   <Fragment>
     <h4 className="display-4">
-      Quadratic Equation solver
+      Quadratic Equation Solver
     </h4>
-    <Calculator />
+    <EquationSolver />
   </Fragment>
 )
 

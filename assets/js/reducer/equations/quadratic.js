@@ -2,7 +2,7 @@
 import { APPLY_SOLUTION } from '../../action'
 
 const initialState = {
-  "equation_type": "",
+  "equation_type": "linear",
   "solution": {},
   "solution_type": "INFINITE_SET"
 }

@@ -59,14 +59,31 @@ body {
   background: lighten($gray-200, 5%);
 }
 
+
 #app-root {
   @extend .text-center;
-  border: 5px solid lighten($okra-base, 25%);
 }
 
-/*
-#app-root::before {
-  color: $sea-green;
-  content: '(Sass should add this and make sea green)'
+
+@import 'range-input';
+
+@media only screen and (max-width: 1400px) {
+  .display-4 {
+    font-size: 280%;
+  }
 }
-*/
+@media only screen and (max-width: 992px) {
+  .display-4 {
+    font-size: 210%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .display-4 {
+    font-size: 180%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .display-4 {
+    font-size: 130%;
+  }
+}
