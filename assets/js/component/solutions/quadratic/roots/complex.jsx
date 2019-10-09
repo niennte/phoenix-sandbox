@@ -5,7 +5,7 @@ const Complex = (props) => {
   const { real, imaginary } = props.value
   const signed = ( imaginary < 0 )
   return(
-    <code>{ real } { signed? '-' : '+'} { signed? Math.abs(imaginary) : imaginary }i</code>
+    <code className="result">{ real } { signed? '-' : '+'} { signed? Math.abs(imaginary) : imaginary }i</code>
   )}
 
 export default Complex

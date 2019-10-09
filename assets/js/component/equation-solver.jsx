@@ -56,6 +56,9 @@ class EquationSolver extends Component<Props> {
     const {dispatch} = this.props
     const {request} = this.state
     e.preventDefault()
+    Object.keys(request).map(function(name) {
+      request[name] = parseFloat(request[name]) || 0;
+    });
     dispatch(emitParams(request));
   }
 
@@ -65,11 +68,11 @@ class EquationSolver extends Component<Props> {
 
     return (
       <div className="container align-content-center">
-        <p>Enter&nbsp;
-          <code><var>a</var></code>,&nbsp;
-          <code><var>b</var></code>,&nbsp;
-          <code><var>c</var></code> to solve equation of type&nbsp;
-          <code><var>a</var><var>x</var><sup>2</sup> + <var>b</var><var>x</var> + <var>c</var> = 0</code>
+        <p className="lead">Enter&nbsp;
+          <code><var className="var-a">a</var></code>,&nbsp;
+          <code><var className="var-b">b</var></code>,&nbsp;
+          <code><var className="var-c">c</var></code> to solve equation of type<br />
+          <code><var className="var-a">a</var><var>x</var><sup>2</sup> + <var className="var-b">b</var><var>x</var> + <var className="var-c">c</var> = 0</code>
         </p>
 
         <form
@@ -106,14 +109,22 @@ class EquationSolver extends Component<Props> {
 
           <div className="form-row align-items-center">
             <button
-              className="btn btn-info btn-lg w-100 mb-2"
+              className="btn btn-success btn-lg w-100 mb-2"
               disabled={ !connected }
             >{ connected ? 'Solve' : 'Connecting' }
             </button>
           </div>
 
-          <div className="form-row align-items-center mb-1">
+          <div className="form-row align-items-center mb-1 solution">
             <RenderSolution {...solution} />
+            <div className="col-12">
+              <span className="params">
+                <code><var>a</var> = { request.a }</code>,&nbsp;
+                <code><var>b</var> = { request.b }</code>,&nbsp;
+                <code><var>c</var> = { request.c }</code>
+              </span><br />
+              <RenderEquation params={request}/>
+            </div>
           </div>
         </form>
 

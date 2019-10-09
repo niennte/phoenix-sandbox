@@ -3,12 +3,14 @@ import React from 'react';
 const Solution = () => {
   return(
     <div className="col-12 ">
-      <code className="display-4">
-        <var>x</var> = &empty;
+      <code className="no-root display-4">
+        <var>x</var> = <span className="result">&empty;</span>
       </code>
       <hr />
-      <p className="mb-0 badge badge-warning">Linear</p>
-      <p className="mb-0 badge badge-danger">No root</p>
+      <div className="col-12 summary">
+        <p className="mb-0 badge badge-warning">Mom wouldn't approve</p>
+        <p className="mb-0 badge badge-danger">No root</p>
+      </div>
     </div>
   )}
 

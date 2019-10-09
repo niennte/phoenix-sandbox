@@ -2,9 +2,9 @@
 
 $range-size: 48px;
 
-$a: $okra-range-2;
-$b: $okra-range-4;
-$c: $okra-range-6;
+$a: $softer-orange;
+$b: $okra-range-yellow;
+$c: desaturate($neon-teal, 20);
 
 
 
@@ -25,7 +25,7 @@ $c: $okra-range-6;
 }
 
 .slider[name=a] {
-  background: lighten($a, 35);
+  background: lighten($a, 25);
 }
 .slider[name=b] {
   background: lighten($b, 35);
@@ -43,8 +43,48 @@ $c: $okra-range-6;
   appearance: none;
   width: $range-size;
   height: $range-size;
+  border-radius: 5px;
   background: gray;
   cursor: pointer;
+}
+
+code var {
+  font-weight: bold;
+}
+
+input[type=number] {
+  color: rgba(36, 70, 72, 0.6);
+  font-weight:bold;
+}
+
+.display-4 span.var-a,
+var.var-a,
+.group-a var {
+  font-size: 130%;
+  color: saturate($a, 5);
+}
+.group-a .input-group-text {
+  background: lighten($a, 35);
+}
+
+.display-4 span.var-b,
+var.var-b,
+.group-b var {
+  font-size: 130%;
+  color: darken($b, 10);
+}
+.group-b .input-group-text {
+  background: lighten($b, 40);
+}
+
+.display-4 span.var-c,
+var.var-c,
+.group-c var {
+  font-size: 130%;
+  color: darken($c, 5);
+}
+.group-c .input-group-text {
+  background: lighten($c, 50);
 }
 
 .slider[name=a]::-webkit-slider-thumb {
@@ -64,6 +104,7 @@ $c: $okra-range-6;
 .slider::-moz-range-thumb {
   width: $range-size;
   height: $range-size;
+  border-radius: 5px;
   background: gray;
   cursor: pointer;
 }
@@ -76,4 +117,13 @@ $c: $okra-range-6;
 }
 .slider[name=c]::-moz-range-thumb {
   background: $c;
+}
+
+.solution .params {
+  font-size: 80%;
+}
+
+code .result {
+  color: darken($green, 15);
+  font-size: 70%;
 }

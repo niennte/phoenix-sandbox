@@ -8,25 +8,25 @@ const RenderEquation = (props) => {
     <code className="equation">
       {
         (parseFloat(a) !== 0) && (
-          <i>{ (parseFloat(a) === -1) && ("-") }
+          <span className="expression-a">{ (parseFloat(a) === -1) && ("-") }
             {
               (Math.abs(parseFloat(a)) !== 1) && (
-                <span className="var-A">{a}</span>
+                <span className="var-a">{a}</span>
               )
             }
             <var>x</var><sup>2</sup>
-          </i>
+          </span>
         )
       }
       {
         (parseFloat(b) !== 0) && (
-          <span>
+          <span className="expression-b">
             { (parseFloat(b) < 0) && (" -") }
             { ((parseFloat(b)) < 0 && (parseFloat(a) !== 0)) && (" ") }
             { ((parseFloat(b)) > 0 && (parseFloat(a) !== 0)) && (" + ") }
             {
               (Math.abs(b) !== 1) && (
-                <span className="var-B">{ Math.abs(b) }</span>
+                <span className="var-b">{ Math.abs(b) }</span>
               )
             }
             <var>x</var>
@@ -36,14 +36,14 @@ const RenderEquation = (props) => {
       {
         (parseFloat(c) !== 0) && (
           (parseFloat(c) <= 0) ? (
-            <i className="var-C"> - { Math.abs(c) }</i>
+            <span className="expression-c"> - <span className="var-c">{ Math.abs(c) }</span></span>
           ) : (
-            <i className="var-C"> + { c }</i>
+            <span className="expression-c"> + <span className="var-c">{ c }</span></span>
           )
         )
       } {
       (parseFloat(b) === 0 && parseFloat(a) === 0 && parseFloat(c) === 0) && (
-        <span>0<var>x</var></span>
+        <span className="expression-b"><span className="var-b">0</span><var>x</var></span>
       )
     }&nbsp;= 0
     </code>

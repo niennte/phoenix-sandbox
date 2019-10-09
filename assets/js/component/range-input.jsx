@@ -5,7 +5,7 @@ const RangeInput = ({title, ...attrs}) => (
     <div className="col-md-3 px-0 input-group">
       <div className="input-group-prepend">
         <code className="input-group-text" id="basic-addon1">
-          <var>{ title }</var>=</code>
+          <var>{ title }</var>&nbsp;=</code>
       </div>
       <input type="number" className="form-control form-control-lg" {...attrs} />
     </div>
