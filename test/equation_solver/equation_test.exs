@@ -1,5 +1,5 @@
 defmodule EquationSolver.EquationTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest EquationSolver.Equation
   alias EquationSolver.Equation
   alias EquationSolver.Params
