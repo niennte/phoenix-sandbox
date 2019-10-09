@@ -8,7 +8,9 @@ import RangeInput from './range-input';
 import RenderSolution from './render-solution';
 
 type Props = {
-  dispatch: Function,
+  emitParams: Function,
+  solution: Object,
+  connected: Boolean
 };
 
 const mapStateToProps = state => ({
@@ -65,6 +67,10 @@ class EquationSolver extends Component<Props> {
   render() {
     const {solution, dispatch, connected} = this.props
     const {request} = this.state
+    const handlers = {
+      onChange: this.handleChange,
+      onBlur: this.validateField
+    }
 
     return (
       <div className="container align-content-center">
@@ -83,22 +89,19 @@ class EquationSolver extends Component<Props> {
             title="a"
             name="a"
             value={ request.a }
-            onChange={this.handleChange}
-            onBlur={this.validateField}
+            {...handlers}
           />
           <RangeInput
             title="b"
             name="b"
             value={ request.b }
-            onChange={this.handleChange}
-            onBlur={this.validateField}
+            {...handlers}
           />
           <RangeInput
             title="c"
             name="c"
             value={ request.c }
-            onChange={this.handleChange}
-            onBlur={this.validateField}
+            {...handlers}
           />
 
           <div className="form-row align-items-center mb-1">
@@ -133,4 +136,5 @@ class EquationSolver extends Component<Props> {
   }
 }
 
+export { EquationSolver }
 export default connect(mapStateToProps)(EquationSolver)
