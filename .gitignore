@@ -13,6 +13,9 @@ npm-debug.log
 # Static artifacts
 /assets/node_modules
 
+# Mix tests
+cover/
+
 # Jest
 assets/coverage/
 
@@ -33,4 +36,7 @@ assets/coverage/
 # IDE
 *.iml
 .idea/
+
+# OS
+.DS_Store
 

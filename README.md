@@ -1,7 +1,31 @@
 # EquationSolver
-[![Build Status](https://travis-ci.org/gigalixir/gigalixir-getting-started.svg?branch=master)](https://travis-ci.org/gigalixir/gigalixir-getting-started)
 
-To start your Phoenix server:
+An app to solve quadratic and linear equations. [Live demo](https://phoenix-sandbox.gigalixirapp.com/)
+
+![](https://s3.amazonaws.com/quod.erat.demonstrandum/portfolio/img/elixir-equation-solver.png)
+
+
+
+
+
+
+#### System deps
+```
+elixir -v
+Erlang/OTP 22 ...
+Elixir 1.9.1 (compiled with Erlang/OTP 22)
+
+node -v
+v10.16.3
+
+yarn -v
+1.10.1
+
+git clone [this repo] [into your path]
+cd [your path]
+```
+
+#### Run locally:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
@@ -10,9 +34,16 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+#### Testing
+  * Backend tests: `mix test`
+  * Frontend tests: `cd assets && yarn test`
 
-## Learn more
+#### Deployment
+Please [check Phoenix deployment guides](http://www.phoenixframework.org/docs/deployment).
+
+Live demo uses [gigalixir](https://gigalixir.com/)'s free tier.
+
+#### More about Phoenix
 
   * Official website: http://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html
