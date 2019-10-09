@@ -4,7 +4,12 @@ import { APPLY_SOLUTION } from '../../action'
 const initialState = {
   "equation_type": "linear",
   "solution": {},
-  "solution_type": "INFINITE_SET"
+  "solution_type": "INFINITE_SET",
+  "params": {
+    a: 0,
+    b: 0,
+    c: 0
+  }
 }
 
 const quadratic = (state = initialState, action: { type: string, payload: any }) => {

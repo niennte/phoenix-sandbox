@@ -29,22 +29,21 @@ class EquationSolver extends Component<Props> {
         c: 0
       }
     }
-
     this.handleChange = this.handleChange.bind(this)
+    this.validateField = this.validateField.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  getDerivedStateFromProps(props) {
-    this.setState(currentState => {
-      return {
-        ...currentState,
-        ...props.solution,
-        request: props.solution.params
-      }
-    })
+  handleChange(e) {
+    const {name, value} = e.target;
+    this.setState((prevState) => {
+      const {request} = prevState;
+      request[name] = value;
+      return {request};
+    });
   }
 
-  handleChange(e) {
+  validateField(e) {
     const {name, value} = e.target;
     this.setState((prevState) => {
       const {request} = prevState;
@@ -82,18 +81,21 @@ class EquationSolver extends Component<Props> {
             name="a"
             value={ request.a }
             onChange={this.handleChange}
+            onBlur={this.validateField}
           />
           <RangeInput
             title="b"
             name="b"
             value={ request.b }
             onChange={this.handleChange}
+            onBlur={this.validateField}
           />
           <RangeInput
             title="c"
             name="c"
             value={ request.c }
             onChange={this.handleChange}
+            onBlur={this.validateField}
           />
 
           <div className="form-row align-items-center mb-1">
