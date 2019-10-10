@@ -58,7 +58,7 @@ class EquationSolver extends Component<Props> {
     const {dispatch} = this.props
     const {request} = this.state
     e.preventDefault()
-    Object.keys(request).map(function(name) {
+    Object.keys(request).map((name) => {
       request[name] = parseFloat(request[name]) || 0;
     });
     dispatch(emitParams(request));
