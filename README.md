@@ -2,7 +2,7 @@
 
 An app to solve quadratic and linear equations. [Live demo](https://phoenix-sandbox.gigalixirapp.com/)
 
-![](https://s3.amazonaws.com/quod.erat.demonstrandum/portfolio/img/elixir-equation-solver.png)
+![](https://s3.amazonaws.com/quod.erat.demonstrandum/portfolio/img/elixir-equation-solver1.png)
 
 
 

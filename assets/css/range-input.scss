@@ -2,9 +2,9 @@
 
 $range-size: 48px;
 
-$a: $softer-orange;
-$b: $okra-range-yellow;
-$c: desaturate($neon-teal, 20);
+$a: darken($softer-orange, 20);
+$b: darken($okra-range-yellow, 5);
+$c: darken(desaturate($neon-teal, 20), 5);
 
 
 
@@ -25,13 +25,13 @@ $c: desaturate($neon-teal, 20);
 }
 
 .slider[name=a] {
-  background: lighten($a, 25);
+  background: lighten($a, 45);
 }
 .slider[name=b] {
-  background: lighten($b, 35);
+  background: lighten($b, 45);
 }
 .slider[name=c] {
-  background: lighten($c, 35);
+  background: lighten($c, 45);
 }
 
 .slider:hover {

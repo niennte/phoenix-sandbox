@@ -65,12 +65,13 @@ class EquationSolver extends Component<Props> {
   }
 
   render() {
-    const {solution, dispatch, connected} = this.props
+    const {solution, connected} = this.props
     const {request} = this.state
     const handlers = {
       onChange: this.handleChange,
       onBlur: this.validateField
     }
+    const { params } = solution
 
     return (
       <div className="container align-content-center">
@@ -121,12 +122,12 @@ class EquationSolver extends Component<Props> {
           <div className="form-row align-items-center mb-1 solution">
             <RenderSolution {...solution} />
             <div className="col-12">
-              <span className="params">
-                <code><var>a</var> = { request.a }</code>,&nbsp;
-                <code><var>b</var> = { request.b }</code>,&nbsp;
-                <code><var>c</var> = { request.c }</code>
-              </span><br />
-              <RenderEquation params={request}/>
+              <RenderEquation params={params}/><br />
+              <span className="params ">
+                <code><var>a</var> = { params.a }</code>,&nbsp;
+                <code><var>b</var> = { params.b }</code>,&nbsp;
+                <code><var>c</var> = { params.c }</code>
+              </span>
             </div>
           </div>
         </form>
