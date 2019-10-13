@@ -1,27 +1,27 @@
+/* eslint-disable */
 // NOTE: The contents of this file will only be executed if
 // you uncomment its entry in "assets/js/app.js".
 
 // To use Phoenix channels, the first step is to import Socket
 // and connect at the socket path in "lib/web/endpoint.ex":
-import { Socket } from "phoenix"
+import { Socket } from 'phoenix'
 
 import {
   applySolution,
-  reportError,
   connectionOk,
   connectionError,
-} from './action';
+} from './action'
 import {
   ROOM,
-  TOPIC_EQUATION_ERROR,
   TOPIC_EQUATION_SOLUTION,
+  TOPIC_EQUATION_REQUEST,
 } from './config'
-import { isProd } from './util'
+
 
 const params = {
-  token: (typeof window !== 'undefined') ? window.userToken : ""
+  token: (typeof window !== 'undefined') ? window.userToken : '',
 }
-let socket = new Socket("/socket", { params })
+const socket = new Socket('/socket', { params })
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
@@ -72,19 +72,22 @@ socket.connect()
 const channel = socket.channel(ROOM, {})
 
 const setUpSocket = (store: Object) => {
-
-  channel.on(TOPIC_EQUATION_SOLUTION, payload => {
+  channel.on(TOPIC_EQUATION_SOLUTION, (payload) => {
     store.dispatch(applySolution(JSON.parse(payload.body), null, 2))
   })
 
   channel.join()
-  .receive("ok", resp => {
-    store.dispatch(connectionOk({ room: ROOM, resp}))
-  })
-  .receive("error", resp => {
-    store.dispatch(connectionError({ room: ROOM, resp }))
-  })
+    .receive('ok', (resp) => {
+      store.dispatch(connectionOk({ room: ROOM, resp }))
+    })
+    .receive('error', (resp) => {
+      store.dispatch(connectionError({ room: ROOM, resp }))
+    })
 }
 
-export { channel, setUpSocket }
+const emitParams = (params: Object) => () => {
+  channel.push(TOPIC_EQUATION_REQUEST, { params: JSON.stringify(params) })
+}
+
+export { channel, setUpSocket, emitParams }
 export default socket

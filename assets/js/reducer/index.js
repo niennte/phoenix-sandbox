@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
 import equation, { initialState as solutionInitialState } from './equations/equation'
 import connection, { initialState as connectionInitialState } from './connection'
@@ -6,14 +6,14 @@ import connection, { initialState as connectionInitialState } from './connection
 const reducers = combineReducers({
   equation,
   connection,
-});
+})
 
 const initialState = {
   equation: {
-    solution: solutionInitialState
+    solution: solutionInitialState,
   },
-  connection: connectionInitialState
+  connection: connectionInitialState,
 }
 
 export { initialState }
-export default reducers;
+export default reducers

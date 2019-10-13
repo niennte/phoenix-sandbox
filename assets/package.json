@@ -1,21 +1,32 @@
 {
-  "repository": {},
+  "name": "equation-solver",
+  "author": "Irin",
+  "repository": "https://github.com/niennte/phoenix-sandbox.git",
   "license": "MIT",
+  "engines": {
+    "node": "10.16.3",
+    "yarn": "1.10.1"
+  },
   "scripts": {
     "deploy": "brunch build --production",
     "watch": "brunch watch --stdin",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "lint": "eslint js"
   },
   "dependencies": {
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-redux": "^7.1.1"
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "redux-actions": "^2.6.5"
   },
   "devDependencies": {
     "babel-brunch": "6.1.1",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -23,11 +34,16 @@
     "brunch": "2.10.9",
     "clean-css-brunch": "2.10.0",
     "deep-freeze": "^0.0.1",
+    "eslint": "6.5.1",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "23.6.0",
-    "redux": "^4.0.4",
-    "redux-actions": "^2.6.5",
     "redux-mock-store": "^1.5.3",
-    "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.3",
     "sass-brunch": "^2.10.8",
     "uglify-js-brunch": "2.10.0"

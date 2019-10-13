@@ -1,4 +1,5 @@
-const isProd = process.env.NODE_ENV === 'production';
+/* eslint-disable */
+const isProd = process.env.NODE_ENV === 'production'
 
 const attrsToFloat = (params) => {
   Object.keys(params).map((name) => {

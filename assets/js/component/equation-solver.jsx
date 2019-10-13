@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import { emitParams } from '../action/index';
+import { emitParams } from '../socket';
 import RenderTitle from './render-title'
 import RenderEquation from './render-equation';
 import RangeInput from './range-input';

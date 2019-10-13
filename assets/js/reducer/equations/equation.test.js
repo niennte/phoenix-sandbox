@@ -1,5 +1,5 @@
-import DeepFreeze from 'deep-freeze';
-import equation, { initialState } from './equation';
+import DeepFreeze from 'deep-freeze'
+import equation, { initialState } from './equation'
 import {
   APPLY_SOLUTION,
   REPORT_ERROR,
@@ -7,20 +7,20 @@ import {
 
 const sampleSolution = {
   ...initialState.solution,
-  ...{ "solution_type": "TEST1" }
-};
+  ...{ solution_type: 'TEST1' },
+}
 
 const sampleState = DeepFreeze({
   ...initialState,
-  ...{ solution: sampleSolution }
-});
+  ...{ solution: sampleSolution },
+})
 
 const samplePayload = {
-  "solution_type": "TEST2"
+  solution_type: 'TEST2',
 }
 
 const errorPayload = {
-  foo: "Bar..."
+  foo: 'Bar...',
 }
 
 
@@ -31,32 +31,31 @@ test(`Should delegate ${APPLY_SOLUTION}`, () => {
       payload: samplePayload,
     })
       .solution
-      .solution_type
-  ).toEqual(samplePayload.solution_type);
-});
+      .solution_type,
+  ).toEqual(samplePayload.solution_type)
+})
 
 test(`Should handle ${REPORT_ERROR}`, () => {
   expect(
     equation(sampleState, {
       type: REPORT_ERROR,
       payload: errorPayload,
-    })
+    }),
   ).toEqual({
     ...sampleState,
     error: errorPayload,
-    hasErrors: true
-  });
-});
+    hasErrors: true,
+  })
+})
 
 test('Should handle unknown', () => {
   expect(
     equation(sampleState, { type: 'UNKNOWN' }),
-  ).toEqual(sampleState);
-});
+  ).toEqual(sampleState)
+})
 
 test('Should handle undefined', () => {
   expect(
     equation(undefined, {}),
-  ).toEqual(initialState);
-});
-
+  ).toEqual(initialState)
+})

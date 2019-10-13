@@ -1,15 +1,15 @@
-import DeepFreeze from 'deep-freeze';
-import connection, { initialState } from './connection';
+import DeepFreeze from 'deep-freeze'
+import connection, { initialState } from './connection'
 
-const roomName = "Sample Room"
-const sampleState = DeepFreeze(initialState);
+const roomName = 'Sample Room'
+const sampleState = DeepFreeze(initialState)
 
 
 test('Should handle CONNECTION_OK', () => {
   const samplePayload = {
     room: roomName,
-    resp: {}
-  };
+    resp: {},
+  }
   expect(
     connection(DeepFreeze({}), {
       type: 'CONNECTION_OK',
@@ -18,15 +18,15 @@ test('Should handle CONNECTION_OK', () => {
   ).toEqual({
     joined: true,
     hasErrors: false,
-    message: `Joined successfully ${roomName}`
-  });
-});
+    message: `Joined successfully ${roomName}`,
+  })
+})
 
 test('Should handle CONNECTION_ERROR', () => {
   const samplePayload = {
     room: roomName,
-    resp: {}
-  };
+    resp: {},
+  }
   expect(
     connection(DeepFreeze({}), {
       type: 'CONNECTION_ERROR',
@@ -35,19 +35,18 @@ test('Should handle CONNECTION_ERROR', () => {
   ).toEqual({
     joined: false,
     hasErrors: true,
-    message: `Unable to join ${roomName}`
-  });
-});
+    message: `Unable to join ${roomName}`,
+  })
+})
 
 test('Should handle unknown', () => {
   expect(
     connection(sampleState, { type: 'UNKNOWN' }),
-  ).toEqual(sampleState);
-});
+  ).toEqual(sampleState)
+})
 
 test('Should handle undefined', () => {
   expect(
     connection(undefined, {}),
-  ).toEqual(initialState);
-});
-
+  ).toEqual(initialState)
+})

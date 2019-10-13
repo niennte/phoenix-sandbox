@@ -9,22 +9,28 @@ import quadraticReducer, { initialState as quadraticInitialState } from './quadr
 const initialState = {
   solution: quadraticInitialState,
   hasErrors: false,
-  error: {}
+  error: {},
 }
 
 const equation = (state = initialState, action: { type: string, payload: any }) => {
   switch (action.type) {
     case APPLY_SOLUTION:
-      return {...state, ...{
-        solution: quadraticReducer(state.solution, action),
-        hasErrors: false,
-        error: {}
-    }}
+      return {
+        ...state,
+        ...{
+          solution: quadraticReducer(state.solution, action),
+          hasErrors: false,
+          error: {},
+        },
+      }
     case REPORT_ERROR:
-      return {...state, ...{
-        hasErrors: true,
-        error: action.payload
-      }}
+      return {
+        ...state,
+        ...{
+          hasErrors: true,
+          error: action.payload,
+        },
+      }
     default:
       return state
   }
