@@ -1,22 +1,23 @@
 // @flow
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import {emitParams} from '../action/index';
+import { emitParams } from '../action/index';
+import RenderTitle from './render-title'
 import RenderEquation from './render-equation';
 import RangeInput from './range-input';
 import RenderSolution from './render-solution';
+import RenderParams from './render-params';
+import SolveButton from './solve-button';
 
 type Props = {
   emitParams: Function,
-  solution: Object,
-  connected: Boolean
+  solution: Object
 };
 
 const mapStateToProps = state => ({
   emitParams: Function,
-  solution: state.equation.solution,
-  connected: state.connection.joined
+  solution: state.equation.solution
 });
 
 
@@ -65,8 +66,8 @@ class EquationSolver extends Component<Props> {
   }
 
   render() {
-    const {solution, connected} = this.props
-    const {request} = this.state
+    const { solution } = this.props
+    const { request } = this.state
     const handlers = {
       onChange: this.handleChange,
       onBlur: this.validateField
@@ -75,12 +76,7 @@ class EquationSolver extends Component<Props> {
 
     return (
       <div className="container align-content-center">
-        <p className="lead">Enter&nbsp;
-          <code><var className="var-a">a</var></code>,&nbsp;
-          <code><var className="var-b">b</var></code>,&nbsp;
-          <code><var className="var-c">c</var></code> to solve equation of type<br />
-          <code><var className="var-a">a</var><var>x</var><sup>2</sup> + <var className="var-b">b</var><var>x</var> + <var className="var-c">c</var> = 0</code>
-        </p>
+        <RenderTitle />
 
         <form
           className="mb-5"
@@ -107,27 +103,19 @@ class EquationSolver extends Component<Props> {
 
           <div className="form-row align-items-center mb-1">
             <div className="col-12 display-4">
-              <RenderEquation params={request}/>
+              <RenderEquation params={ request }/>
             </div>
           </div>
 
           <div className="form-row align-items-center">
-            <button
-              className="btn btn-success btn-lg w-100 mb-2"
-              disabled={ !connected }
-            >{ connected ? 'Solve' : 'Connecting' }
-            </button>
+            <SolveButton />
           </div>
 
           <div className="form-row align-items-center mb-1 solution">
-            <RenderSolution {...solution} />
-            <div className="col-12">
-              <RenderEquation params={params}/><br />
-              <span className="params ">
-                <code><var>a</var> = { params.a }</code>,&nbsp;
-                <code><var>b</var> = { params.b }</code>,&nbsp;
-                <code><var>c</var> = { params.c }</code>
-              </span>
+            <RenderSolution { ...solution } />
+            <div className="col-12 summary">
+              <RenderEquation params={ params } /><br />
+              <RenderParams params={ params } />
             </div>
           </div>
         </form>
