@@ -16,10 +16,10 @@ const RenderEquation = (props) => {
 
   return (
     <code className="equation">
-      <ExpressionA {...expressionProps } />
-      <ExpressionB {...expressionProps } />
-      <ExpressionC {...expressionProps } />
-      <ExpressionDefault {...expressionProps } />
+      <ExpressionA { ...expressionProps } />
+      <ExpressionB { ...expressionProps } />
+      <ExpressionC { ...expressionProps } />
+      <ExpressionDefault { ...expressionProps } />
     </code>
   )
 }

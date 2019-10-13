@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 type Props = {
@@ -12,9 +12,9 @@ const mapStateToProps = state => ({
 
 const SolveButton = ({ connected }: Props) => (
   <button
-    className="btn btn-success btn-lg w-100 mb-2"
+    className={`btn btn-lg w-100 mb-2 ${connected ? 'btn-success' : 'btn-warning'}`}
     disabled={ !connected }
-  >{ connected ? 'Solve' : 'Connecting' }
+  >{ connected ? 'Solve' : 'Connecting ...' }
   </button>
 )
 

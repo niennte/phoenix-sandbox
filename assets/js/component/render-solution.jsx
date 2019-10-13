@@ -17,10 +17,10 @@ const RenderSolution = (props) => {
         result = ( <NoRoot /> )
         break
       case "REAL":
-        result = ( <Linear solution = {props.solution} /> )
+        result = ( <Linear solution = { props.solution } /> )
     }
   } else {
-    result =  <Quadratic equation = {props} />
+    result =  <Quadratic equation = { props } />
   }
   return result
 }

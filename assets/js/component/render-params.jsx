@@ -9,7 +9,7 @@ type Props =  {
 
 const RenderEquation = ({ params }: Props) => {
 
-  const {a, b, c} = params
+  const { a, b, c } = params
 
   return (
     <span className="params ">
